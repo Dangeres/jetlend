@@ -14,12 +14,34 @@ class TestMain(unittest.TestCase):
                     {"key1": "value1"},
                     {"key1": "value1"},
                     {"key2": "value2"}
-                ]), 
-                [
-                    {"key1": "value1"}, 
-                    {"k1": "v1", "k2": "v2", "k3": "v3"}, 
-                    {}, 
-                    {"key2": "value2"}
-                ])
+                ]
+            ), 
+            [
+                {"key1": "value1"}, 
+                {"k1": "v1", "k2": "v2", "k3": "v3"}, 
+                {}, 
+                {"key2": "value2"}
+            ]
+        )
 
-        # self.assertEqual()
+        self.assertEqual(
+            delete_duplicates(
+                []
+            ),
+            []
+        )
+
+        self.assertEqual(
+            delete_duplicates(
+                [
+                    {"1": "2"},
+                    {"1": "2"},
+                    {"1": "2"},
+                    {"1": "3"},
+                ]
+            ),
+            [
+                {"1": "2"},
+                {"1": "3"},
+            ]
+        )

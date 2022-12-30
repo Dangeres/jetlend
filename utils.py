@@ -1,10 +1,19 @@
+def hash_dict(data):
+    res = []
+
+    for i in data:
+        res.append(f"{i}-{data[i]}")
+
+    return ",".join(res)
+
+
 
 def delete_duplicates(data):
     pre_result = dict()
 
     for i in data:
-        if pre_result.get(tuple(i)) is None:
-            pre_result[tuple(i)] = i
+        if pre_result.get(hash_dict(i)) is None:
+            pre_result[hash_dict(i)] = i
 
     result = []
 
@@ -18,13 +27,10 @@ def main():
     print(
         delete_duplicates(
             [
-                {"key1": "value1"},
-                {"k1": "v1", "k2": "v2", "k3": "v3"},
-                {},
-                {},
-                {"key1": "value1"},
-                {"key1": "value1"},
-                {"key2": "value2"}
+                {"1": "2"},
+                {"1": "2"},
+                {"1": "2"},
+                {"1": "3"},
             ]
         )
     )
