@@ -31,7 +31,7 @@ class TestMain(unittest.TestCase):
             []
         )
 
-        self.assertEqual(
+        self.assertEqual( # Важный тест, который ложит на лопатки хеширование через tuple
             delete_duplicates(
                 [
                     {"1": "2"},
@@ -43,5 +43,25 @@ class TestMain(unittest.TestCase):
             [
                 {"1": "2"},
                 {"1": "3"},
+            ]
+        )
+
+        self.assertEqual(
+            delete_duplicates(
+                [
+                    {"1": "2"},
+                    {"1": "2"},
+                    {"1": "2"},
+                    {"1": "3"},
+                    {},
+                    {},
+                    {"15": ["1", "2", "3"]},
+                ]
+            ),
+            [
+                {"1": "2"},
+                {"1": "3"},
+                {},
+                {"15": ["1", "2", "3"]},
             ]
         )
