@@ -4,7 +4,7 @@ def hash_dict(data):
     for i in data:
         res.append(f"{i}-{data[i]}")
 
-    return ",".join(res)
+    return hash(",".join(res))
 
 
 
